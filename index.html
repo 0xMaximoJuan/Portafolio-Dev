@@ -65,6 +65,9 @@
             border-radius: 12px;
             border: 1px solid #36393f;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover { 
@@ -86,12 +89,11 @@
 
         .project-img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
             border: 1px solid #4f545c;
-            display: block;
         }
 
         .contact-box {
@@ -100,7 +102,6 @@
             padding: 50px;
             border-radius: 20px;
             margin-top: 60px;
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.2);
         }
 
         .btn {
@@ -115,13 +116,9 @@
             transition: 0.2s;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            background: #f1f1f1;
-        }
+        .btn:hover { transform: scale(1.05); }
 
         ul { list-style: none; padding: 0; }
-        li { margin-bottom: 10px; }
         li::before { content: "↪ "; color: var(--primary); font-weight: bold; }
 
         h2 { border-bottom: 2px solid #36393f; padding-bottom: 10px; margin-bottom: 20px; }
@@ -134,7 +131,7 @@
     <div>
         <span class="profile-badge">Developer & Setupper</span>
         <h1>MaximoJuan</h1>
-        <p style="font-size: 1.1rem; color: #dcddde;">Soluciones de alto rendimiento para Discord y Minecraft</p>
+        <p style="font-size: 1.1rem; color: #dcddde;">Soluciones profesionales para Discord y Minecraft</p>
     </div>
 </header>
 
@@ -142,57 +139,56 @@
     
     <section class="grid">
         <div class="card">
-            <h2>🛠️ Habilidades Técnicas</h2>
-            <p>Especialista en desarrollo y optimización de entornos comunitarios.</p>
-            <ul>
-                <li>Configuración de <strong>servidores Minecraft</strong> 1.21+.</li>
-                <li>Desarrollo de <strong>Bots de Discord</strong> (Tickets/Postulaciones).</li>
-                <li>Dominio avanzado de <strong>YAML</strong> y lógica de plugins.</li>
-                <li>Traducciones técnicas personalizadas.</li>
-                <li>Sistemas de Rankup, Economía y ELO.</li>
-            </ul>
-            <div style="margin-top: 25px;">
-                <span class="tag">Python</span>
-                <span class="tag">Java</span>
-                <span class="tag">JS</span>
-                <span class="tag">YAML</span>
+            <div>
+                <h2>🛠️ Habilidades</h2>
+                <ul>
+                    <li>Configuración de <strong>servidores Minecraft</strong> 1.21+.</li>
+                    <li>Desarrollo de <strong>Bots de Discord</strong> personalizados.</li>
+                    <li>Dominio avanzado de <strong>YAML, JS y Python</strong>.</li>
+                    <li>Sistemas de Rankup y ELO.</li>
+                </ul>
+            </div>
+            <div style="margin-top: 20px;">
+                <span class="tag">Python</span><span class="tag">JS</span><span class="tag">YAML</span>
             </div>
         </div>
 
         <div class="card">
-            <h2>🚀 Fenixen Network</h2>
-            <img src="Captura%20de%20pantalla%202026-03-09%20110551.png" alt="Fenixen Bot" class="project-img">
-            <p>Configuración del Bot Oficial de Fenixen Network. Gestión de tickets y sincronización IP/Tienda integrada en el perfil del bot.</p>
+            <div>
+                <h2>🚀 Fenixen Network</h2>
+                <img src="Captura%20de%20pantalla%202026-03-09%20110551.png" alt="Fenixen Bot" class="project-img">
+                <p>Bot oficial con gestión de tickets y sincronización de perfiles.</p>
+            </div>
         </div>
     </section>
 
     <section class="grid">
         <div class="card">
-            <h2>🎮 Minecraft GUI & Systems</h2>
-            <img src="Captura%20de%20pantalla%202026-03-09%20110628.png" alt="Casino Vegas" class="project-img">
-            <p>Creación de menús interactivos complejos como <strong>Casino Vegas</strong> y sistemas de recompensas visuales.</p>
+            <div>
+                <h2>🎮 Minecraft GUI</h2>
+                <img src="image-193.png" alt="Casino Vegas" class="project-img">
+                <p>Diseño de menús interactivos como el sistema de <strong>Casino Vegas</strong>.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h2>🤖 Automatización</h2>
-            <img src="Captura%20de%20pantalla%202026-03-09%20110612.png" alt="Files" class="project-img">
-            <p>Estructuración de archivos profesional (Node.js) para asegurar un tiempo de actividad (uptime) del 100%.</p>
+            <div>
+                <h2>🤖 Automatización</h2>
+                <img src="Captura%20de%20pantalla%202026-03-09%20110612.png" alt="Archivos Bot" class="project-img">
+                <p>Estructura profesional de archivos para bots escalables y eficientes.</p>
+            </div>
         </div>
     </section>
 
     <section class="contact-box">
-        <h2 style="border:none; margin-bottom: 10px;">¿Necesitas un Setup profesional?</h2>
-        <p style="color: #e3e5e8; margin-bottom: 20px;">Disponible para proyectos de configuración y desarrollo a medida.</p>
-        <div style="margin-bottom: 20px;">
-            <p><strong>Discord:</strong> themaximojuan</p>
-            <p><strong>Email:</strong> theduojd75@gmail.com</p>
-        </div>
-        <a href="mailto:theduojd75@gmail.com" class="btn">Contactar ahora</a>
+        <h2>¿Necesitas un Setup profesional?</h2>
+        <p><strong>Discord ID:</strong> themaximojuan | <strong>Email:</strong> theduojd75@gmail.com</p>
+        <a href="mailto:theduojd75@gmail.com" class="btn">Enviar Correo</a>
     </section>
 
 </div>
 
-<footer style="text-align: center; padding: 50px; color: var(--text-gray); font-size: 0.9rem;">
+<footer style="text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.8rem;">
     &copy; 2026 MaximoJuan | Portfolio Profesional
 </footer>
 
