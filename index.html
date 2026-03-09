@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaximoJuan | Discord & Minecraft Developer</title>
+    <style>
+        :root {
+            --primary: #5865F2;
+            --bg-dark: #23272a;
+            --bg-darker: #1e2124;
+            --text-white: #ffffff;
+            --text-gray: #b9bbbe;
+            --accent: #faa61a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-darker);
+            color: var(--text-white);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1500x300'); /* Puedes poner un banner aquí */
+            background-size: cover;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-top: -50px;
+        }
+
+        .profile-badge {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        h1 { font-size: 2.5rem; margin: 10px 0; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--bg-dark);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #36393f;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .tag {
+            background: #2f3136;
+            color: var(--accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            font-family: monospace;
+        }
+
+        .project-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #4f545c;
+        }
+
+        .contact-box {
+            background: var(--primary);
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        ul { list-style: none; padding: 0; }
+        li::before { content: "↪ "; color: var(--primary); }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <span class="profile-badge">DEVELOPER & SETUPPER</span>
+        <h1>MaximoJuan</h1>
+        <p>Soluciones profesionales para comunidades de Discord y Minecraft</p>
+    </div>
+</header>
+
+<div class="container">
+    
+    <section class="grid">
+        <div class="card">
+            <h2>🛠️ Mis Habilidades</h2>
+            <p>Especialista en desarrollo técnico y optimización de entornos virtuales.</p>
+            <ul>
+                <li>Configuración avanzada de <strong>servidores de Minecraft</strong> (Cualquier modalidad).</li>
+                <li>Creación de <strong>Bots de Discord</strong> personalizados con JavaScript y Python.</li>
+                <li>Gestión de archivos <strong>YAML</strong> para plugins y sistemas complejos.</li>
+                <li>Traducciones 100% integrales adaptadas al cliente.</li>
+                <li>Sistemas de Rankup, Economía y Moderación.</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <span class="tag">Python</span>
+                <span class="tag">Java</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">YAML</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Proyectos Destacados</h2>
+            <p><strong>Fenixen Network & Postulaciones</strong></p>
+            <img src="image_f7e297.png" alt="Fenixen Bot" class="project-img">
+            <p>Desarrollo de bots oficiales para gestión de tickets, postulaciones y sincronización con el servidor de Minecraft.</p>
+        </div>
+    </section>
+
+    <section class="grid">
+        <div class="card">
+            <h2>🎮 Minecraft Setup</h2>
+            <img src="image_f7def6.png" alt="Casino Vegas" class="project-img">
+            <p>Configuración de GUIs interactivas (como Casino Vegas), leaderboards de Kills/Elo y hologramas dinámicos.</p>
+        </div>
+
+        <div class="card">
+            <h2>🖥️ Infraestructura</h2>
+            <img src="image_f7e310.png" alt="Files" class="project-img" style="opacity: 0.7;">
+            <p>Estructuración limpia de archivos, despliegue de comandos slash y mantenimiento de bases de datos para bots.</p>
+        </div>
+    </section>
+
+    <section class="contact-box">
+        <h2>¿Listo para llevar tu servidor al siguiente nivel?</h2>
+        <p>Trabajo con seriedad, rapidez y total personalización.</p>
+        <p><strong>Discord ID:</strong> themaximojuan</p>
+        <p><strong>Email:</strong> theduojd75@gmail.com</p>
+        <a href="mailto:theduojd75@gmail.com" class="btn">Enviar un Correo</a>
+    </section>
+
+</div>
+
+<footer style="text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.8rem;">
+    &copy; 2026 MaximoJuan Portfolio. Hecho para comunidades de alto rendimiento.
+</footer>
+
+</body>
+</html>
