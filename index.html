@@ -23,8 +23,9 @@
         }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1500x300'); /* Puedes poner un banner aquí */
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
+            background-position: center;
             height: 250px;
             display: flex;
             align-items: center;
@@ -39,11 +40,6 @@
             padding: 20px;
         }
 
-        .profile-section {
-            text-align: center;
-            margin-top: -50px;
-        }
-
         .profile-badge {
             background: var(--primary);
             color: white;
@@ -51,65 +47,84 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: bold;
+            text-transform: uppercase;
         }
 
-        h1 { font-size: 2.5rem; margin: 10px 0; }
+        h1 { font-size: 2.8rem; margin: 10px 0; letter-spacing: 1px; }
         
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-top: 40px;
         }
 
         .card {
             background: var(--bg-dark);
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
             border: 1px solid #36393f;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
 
         .tag {
             background: #2f3136;
             color: var(--accent);
-            padding: 4px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             margin-right: 5px;
-            font-family: monospace;
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid rgba(250, 166, 26, 0.2);
         }
 
         .project-img {
             width: 100%;
+            height: 180px;
+            object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
             border: 1px solid #4f545c;
+            display: block;
         }
 
         .contact-box {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #4752c4);
             text-align: center;
-            padding: 40px;
-            border-radius: 15px;
-            margin-top: 50px;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.2);
         }
 
         .btn {
             display: inline-block;
             background: white;
             color: var(--primary);
-            padding: 10px 25px;
-            border-radius: 5px;
+            padding: 12px 30px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            margin: 10px;
+            margin: 15px 10px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #f1f1f1;
         }
 
         ul { list-style: none; padding: 0; }
-        li::before { content: "↪ "; color: var(--primary); }
+        li { margin-bottom: 10px; }
+        li::before { content: "↪ "; color: var(--primary); font-weight: bold; }
+
+        h2 { border-bottom: 2px solid #36393f; padding-bottom: 10px; margin-bottom: 20px; }
 
     </style>
 </head>
@@ -117,9 +132,9 @@
 
 <header>
     <div>
-        <span class="profile-badge">DEVELOPER & SETUPPER</span>
+        <span class="profile-badge">Developer & Setupper</span>
         <h1>MaximoJuan</h1>
-        <p>Soluciones profesionales para comunidades de Discord y Minecraft</p>
+        <p style="font-size: 1.1rem; color: #dcddde;">Soluciones de alto rendimiento para Discord y Minecraft</p>
     </div>
 </header>
 
@@ -127,57 +142,58 @@
     
     <section class="grid">
         <div class="card">
-            <h2>🛠️ Mis Habilidades</h2>
-            <p>Especialista en desarrollo técnico y optimización de entornos virtuales.</p>
+            <h2>🛠️ Habilidades Técnicas</h2>
+            <p>Especialista en desarrollo y optimización de entornos comunitarios.</p>
             <ul>
-                <li>Configuración avanzada de <strong>servidores de Minecraft</strong> (Cualquier modalidad).</li>
-                <li>Creación de <strong>Bots de Discord</strong> personalizados con JavaScript y Python.</li>
-                <li>Gestión de archivos <strong>YAML</strong> para plugins y sistemas complejos.</li>
-                <li>Traducciones 100% integrales adaptadas al cliente.</li>
-                <li>Sistemas de Rankup, Economía y Moderación.</li>
+                <li>Configuración de <strong>servidores Minecraft</strong> 1.21+.</li>
+                <li>Desarrollo de <strong>Bots de Discord</strong> (Tickets/Postulaciones).</li>
+                <li>Dominio avanzado de <strong>YAML</strong> y lógica de plugins.</li>
+                <li>Traducciones técnicas personalizadas.</li>
+                <li>Sistemas de Rankup, Economía y ELO.</li>
             </ul>
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 25px;">
                 <span class="tag">Python</span>
                 <span class="tag">Java</span>
-                <span class="tag">JavaScript</span>
+                <span class="tag">JS</span>
                 <span class="tag">YAML</span>
             </div>
         </div>
 
         <div class="card">
-            <h2>🚀 Proyectos Destacados</h2>
-            <p><strong>Fenixen Network & Postulaciones</strong></p>
-            <img src="image_f7e297.png" alt="Fenixen Bot" class="project-img">
-            <p>Desarrollo de bots oficiales para gestión de tickets, postulaciones y sincronización con el servidor de Minecraft.</p>
+            <h2>🚀 Fenixen Network</h2>
+            <img src="Captura%20de%20pantalla%202026-03-09%20110551.png" alt="Fenixen Bot" class="project-img">
+            <p>Configuración del Bot Oficial de Fenixen Network. Gestión de tickets y sincronización IP/Tienda integrada en el perfil del bot.</p>
         </div>
     </section>
 
     <section class="grid">
         <div class="card">
-            <h2>🎮 Minecraft Setup</h2>
-            <img src="image_f7def6.png" alt="Casino Vegas" class="project-img">
-            <p>Configuración de GUIs interactivas (como Casino Vegas), leaderboards de Kills/Elo y hologramas dinámicos.</p>
+            <h2>🎮 Minecraft GUI & Systems</h2>
+            <img src="Captura%20de%20pantalla%202026-03-09%20110628.png" alt="Casino Vegas" class="project-img">
+            <p>Creación de menús interactivos complejos como <strong>Casino Vegas</strong> y sistemas de recompensas visuales.</p>
         </div>
 
         <div class="card">
-            <h2>🖥️ Infraestructura</h2>
-            <img src="image_f7e310.png" alt="Files" class="project-img" style="opacity: 0.7;">
-            <p>Estructuración limpia de archivos, despliegue de comandos slash y mantenimiento de bases de datos para bots.</p>
+            <h2>🤖 Automatización</h2>
+            <img src="Captura%20de%20pantalla%202026-03-09%20110612.png" alt="Files" class="project-img">
+            <p>Estructuración de archivos profesional (Node.js) para asegurar un tiempo de actividad (uptime) del 100%.</p>
         </div>
     </section>
 
     <section class="contact-box">
-        <h2>¿Listo para llevar tu servidor al siguiente nivel?</h2>
-        <p>Trabajo con seriedad, rapidez y total personalización.</p>
-        <p><strong>Discord ID:</strong> themaximojuan</p>
-        <p><strong>Email:</strong> theduojd75@gmail.com</p>
-        <a href="mailto:theduojd75@gmail.com" class="btn">Enviar un Correo</a>
+        <h2 style="border:none; margin-bottom: 10px;">¿Necesitas un Setup profesional?</h2>
+        <p style="color: #e3e5e8; margin-bottom: 20px;">Disponible para proyectos de configuración y desarrollo a medida.</p>
+        <div style="margin-bottom: 20px;">
+            <p><strong>Discord:</strong> themaximojuan</p>
+            <p><strong>Email:</strong> theduojd75@gmail.com</p>
+        </div>
+        <a href="mailto:theduojd75@gmail.com" class="btn">Contactar ahora</a>
     </section>
 
 </div>
 
-<footer style="text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.8rem;">
-    &copy; 2026 MaximoJuan Portfolio. Hecho para comunidades de alto rendimiento.
+<footer style="text-align: center; padding: 50px; color: var(--text-gray); font-size: 0.9rem;">
+    &copy; 2026 MaximoJuan | Portfolio Profesional
 </footer>
 
 </body>
