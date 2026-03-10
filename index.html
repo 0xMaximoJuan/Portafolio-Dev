@@ -35,7 +35,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -52,9 +52,10 @@
 
         h1 { font-size: 2.8rem; margin: 10px 0; letter-spacing: 1px; }
         
+        /* Grilla unificada para que todas las cards estén alineadas */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin-top: 40px;
         }
@@ -67,13 +68,12 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .card:hover { 
             transform: translateY(-8px); 
             border-color: var(--primary);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
         .tag {
@@ -87,13 +87,21 @@
             border: 1px solid rgba(250, 166, 26, 0.2);
         }
 
+        /* Estilo de imagen optimizado */
         .project-img {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: contain; /* Muestra la imagen completa sin cortes */
+            background-color: #1a1c1e; /* Fondo para rellenar si la imagen es pequeña */
             border-radius: 8px;
             margin-bottom: 15px;
             border: 1px solid #4f545c;
+            cursor: zoom-in;
+            transition: 0.3s;
+        }
+
+        .project-img:hover {
+            filter: brightness(1.2);
         }
 
         .contact-box {
@@ -123,6 +131,29 @@
 
         h2 { border-bottom: 2px solid #36393f; padding-bottom: 10px; margin-bottom: 20px; }
 
+        /* Estilos del Modal (Lightbox) */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        #modalImg {
+            max-width: 90%;
+            max-height: 85%;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(88, 101, 242, 0.3);
+        }
+
     </style>
 </head>
 <body>
@@ -130,7 +161,7 @@
 <header>
     <div>
         <span class="profile-badge">Developer & Setupper</span>
-        <h1>MaximoJuan</h1>
+        <h1>0xMaximoJuan</h1>
         <p style="font-size: 1.1rem; color: #dcddde;">Soluciones profesionales para Discord y Minecraft</p>
     </div>
 </header>
@@ -139,44 +170,34 @@
     
     <section class="grid">
         <div class="card">
-            <div>
-                <h2>🛠️ Habilidades</h2>
-                <ul>
-                    <li>Configuración de <strong>servidores Minecraft</strong> 1.21+.</li>
-                    <li>Desarrollo de <strong>Bots de Discord</strong> personalizados.</li>
-                    <li>Dominio avanzado de <strong>YAML, JS y Python</strong>.</li>
-                    <li>Sistemas de Rankups,Menus y Configuraciones Personalizadas.</li>
-                </ul>
-            </div>
-            <div style="margin-top: 20px;">
+            <h2>🛠️ Habilidades</h2>
+            <ul>
+                <li>Configuración de <strong>servidores Minecraft</strong> 1.21+.</li>
+                <li>Desarrollo de <strong>Bots de Discord</strong> personalizados.</li>
+                <li>Dominio avanzado de <strong>YAML, JS y Python</strong>.</li>
+                <li>Sistemas de Rankups,Menus y Configuraciones Personalizadas.</li>
+            </ul>
+            <div style="margin-top: auto; padding-top: 20px;">
                 <span class="tag">Python</span><span class="tag">JS</span><span class="tag">YAML</span>
             </div>
         </div>
 
         <div class="card">
-            <div>
-                <h2>🚀 Bots Personalizados</h2>
-                <img src="Captura%20de%20pantalla%202026-03-09%20110551.png" alt="Fenixen Bot" class="project-img">
-                <p>Bot oficial con gestión de tickets , DB y comandos personalizados.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="grid">
-        <div class="card">
-            <div>
-                <h2>🎮 Minecraft GUI y Configs</h2>
-                <img src="image-193.png" alt="Casino Vegas" class="project-img">
-                <p>Diseño de menús interactivos como el sistema de <strong>Rankups, Optimizaciones y mas</strong>.</p>
-            </div>
+            <h2>🚀 Bots Personalizados</h2>
+            <img src="Captura de pantalla 2026-03-09 110551.png" alt="Fenixen Bot" class="project-img">
+            <p>Bot oficial con gestión de tickets, DB y comandos personalizados.</p>
         </div>
 
         <div class="card">
-            <div>
-                <h2>🤖 Automatización</h2>
-                <img src="Captura%20de%20pantalla%202026-03-09%20110612.png" alt="Archivos Bot" class="project-img">
-                <p>Estructura profesional de archivos para bots escalables y eficientes.</p>
-            </div>
+            <h2>🎮 Minecraft GUI y Configs</h2>
+            <img src="image-193.png" alt="Casino Vegas" class="project-img">
+            <p>Diseño de menús interactivos como el sistema de <strong>Rankups, Optimizaciones y mas.</strong>.</p>
+        </div>
+
+        <div class="card">
+            <h2>🤖 Automatización</h2>
+            <img src="Captura de pantalla 2026-03-09 110612.png" alt="Archivos Bot" class="project-img">
+            <p>Estructura profesional de archivos para bots escalables y eficientes.</p>
         </div>
     </section>
 
@@ -189,9 +210,27 @@
 </div>
 
 <footer style="text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.8rem;">
-    &copy; 2026 0xMaximoJuan | Portafolio Profesional
+    &copy; 2026 0xMaximoJuan | Portfolio Profesional
 </footer>
+
+<div id="imageModal" onclick="this.style.display='none'">
+    <img id="modalImg" alt="Ampliación">
+    <p style="position:absolute; bottom:20px; color:white;">Haz clic en cualquier lugar para cerrar</p>
+</div>
+
+<script>
+    // Lógica del Lightbox
+    const images = document.querySelectorAll('.project-img');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+
+    images.forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        }
+    });
+</script>
 
 </body>
 </html>
-
