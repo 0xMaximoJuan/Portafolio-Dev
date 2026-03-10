@@ -7,11 +7,13 @@
     <style>
         :root {
             --primary: #5865F2;
+            --primary-hover: #4752c4;
             --bg-dark: #23272a;
             --bg-darker: #1e2124;
             --text-white: #ffffff;
             --text-gray: #b9bbbe;
             --accent: #faa61a;
+            --modal-bg: rgba(0, 0, 0, 0.85);
         }
 
         body {
@@ -20,13 +22,14 @@
             color: var(--text-white);
             margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 250px;
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -35,93 +38,149 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .profile-badge {
             background: var(--primary);
             color: white;
-            padding: 5px 15px;
+            padding: 6px 18px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        h1 { font-size: 2.8rem; margin: 10px 0; letter-spacing: 1px; }
-        
+        h1 { font-size: 3.5rem; margin: 15px 0; letter-spacing: 1px; }
+
+        /* Grid & Cards */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
         .card {
             background: var(--bg-dark);
-            padding: 25px;
-            border-radius: 12px;
+            border-radius: 15px;
             border: 1px solid #36393f;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            position: relative;
         }
 
-        .card:hover { 
-            transform: translateY(-8px); 
+        .card:hover {
+            transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
+
+        .card-content { padding: 25px; }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #36393f;
+            transition: 0.5s;
+        }
+
+        .card:hover .project-img { filter: brightness(1.1); }
 
         .tag {
             background: #2f3136;
             color: var(--accent);
             padding: 4px 10px;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             margin-right: 5px;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', monospace;
             border: 1px solid rgba(250, 166, 26, 0.2);
         }
 
-        .project-img {
+        /* Modales */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #4f545c;
+            height: 100%;
+            background-color: var(--modal-bg);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
+        .modal-content {
+            background-color: var(--bg-dark);
+            max-width: 800px;
+            width: 100%;
+            border-radius: 20px;
+            position: relative;
+            padding: 40px;
+            border: 1px solid var(--primary);
+            animation: modalFade 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            color: var(--text-gray);
+            cursor: pointer;
+        }
+
+        .close-modal:hover { color: white; }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+        }
+
+        /* Contact & Buttons */
         .contact-box {
             background: linear-gradient(135deg, var(--primary), #4752c4);
             text-align: center;
-            padding: 50px;
-            border-radius: 20px;
-            margin-top: 60px;
+            padding: 60px 20px;
+            border-radius: 25px;
+            margin-top: 80px;
         }
 
         .btn {
             display: inline-block;
             background: white;
             color: var(--primary);
-            padding: 12px 30px;
-            border-radius: 8px;
+            padding: 14px 35px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            margin: 15px 10px;
-            transition: 0.2s;
+            transition: 0.3s;
+            margin-top: 20px;
         }
 
-        .btn:hover { transform: scale(1.05); }
-
-        ul { list-style: none; padding: 0; }
-        li::before { content: "↪ "; color: var(--primary); font-weight: bold; }
-
-        h2 { border-bottom: 2px solid #36393f; padding-bottom: 10px; margin-bottom: 20px; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
     </style>
 </head>
@@ -131,67 +190,125 @@
     <div>
         <span class="profile-badge">Developer & Setupper</span>
         <h1>MaximoJuan</h1>
-        <p style="font-size: 1.1rem; color: #dcddde;">Soluciones profesionales para Discord y Minecraft</p>
+        <p style="font-size: 1.2rem; color: #dcddde;">Soluciones de alto rendimiento para comunidades virtuales</p>
     </div>
 </header>
 
 <div class="container">
     
+    <h2 style="text-align: center; margin-bottom: 40px;">📂 Mis Proyectos y Especialidades</h2>
+
     <section class="grid">
-        <div class="card">
-            <div>
-                <h2>🛠️ Habilidades</h2>
-                <ul>
-                    <li>Configuración de <strong>servidores Minecraft</strong> 1.21+.</li>
-                    <li>Desarrollo de <strong>Bots de Discord</strong> personalizados.</li>
-                    <li>Dominio avanzado de <strong>YAML, JS y Python</strong>.</li>
-                    <li>Sistemas de Rankups,Menus y Configuraciones Personalizadas.</li>
-                </ul>
-            </div>
-            <div style="margin-top: 20px;">
-                <span class="tag">Python</span><span class="tag">JS</span><span class="tag">YAML</span>
+        <div class="card" onclick="openModal('modalBots')">
+            <img src="Captura%20de%20pantalla%202026-03-09%20110551.png" alt="Bots" class="project-img">
+            <div class="card-content">
+                <span class="tag">Python</span><span class="tag">Discord.js</span>
+                <h3 style="margin: 15px 0 10px 0;">🚀 Bots Personalizados</h3>
+                <p style="color: var(--text-gray); font-size: 0.9rem;">Sistemas de tickets, bases de datos y comandos únicos...</p>
+                <small style="color: var(--primary);">Haz clic para ver detalles →</small>
             </div>
         </div>
 
-        <div class="card">
-            <div>
-                <h2>🚀 Bots Personalizados</h2>
-                <img src="Captura%20de%20pantalla%202026-03-09%20110551.png" alt="Fenixen Bot" class="project-img">
-                <p>Bot oficial con gestión de tickets , DB y comandos personalizados.</p>
+        <div class="card" onclick="openModal('modalMC')">
+            <img src="image-193.png" alt="Minecraft" class="project-img">
+            <div class="card-content">
+                <span class="tag">YAML</span><span class="tag">Optimization</span>
+                <h3 style="margin: 15px 0 10px 0;">🎮 Minecraft Setups</h3>
+                <p style="color: var(--text-gray); font-size: 0.9rem;">Configuración avanzada de GUIs, Rankups y economías...</p>
+                <small style="color: var(--primary);">Haz clic para ver detalles →</small>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modalAuto')">
+            <img src="Captura%20de%20pantalla%202026-03-09%20110612.png" alt="Automatización" class="project-img">
+            <div class="card-content">
+                <span class="tag">Node.js</span><span class="tag">DevOps</span>
+                <h3 style="margin: 15px 0 10px 0;">🤖 Automatización</h3>
+                <p style="color: var(--text-gray); font-size: 0.9rem;">Estructuras escalables y gestión eficiente de archivos...</p>
+                <small style="color: var(--primary);">Haz clic para ver detalles →</small>
             </div>
         </div>
     </section>
 
-    <section class="grid">
-        <div class="card">
-            <div>
-                <h2>🎮 Minecraft GUI y Configs</h2>
-                <img src="image-193.png" alt="Casino Vegas" class="project-img">
-                <p>Diseño de menús interactivos como el sistema de <strong>Casino Vegas y Rankups</strong>.</p>
+    <div id="modalBots" class="modal" onclick="closeModal(event, 'modalBots')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="document.getElementById('modalBots').style.display='none'">&times;</span>
+            <div class="modal-grid">
+                <img src="Captura%20de%20pantalla%202026-03-09%20110551.png" style="width:100%; border-radius:10px;" alt="Detalle Bot">
+                <div>
+                    <h2 style="color: var(--primary);">Bots de Discord de Alta Gama</h2>
+                    <p>Desarrollo soluciones a medida que incluyen:</p>
+                    <ul style="color: var(--text-gray);">
+                        <li>Sistemas de moderación automática.</li>
+                        <li>Integración con bases de datos SQL/NoSQL.</li>
+                        <li>Dashboards interactivos y sistemas de economía.</li>
+                        <li>Traducciones automáticas y logs avanzados.</li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="card">
-            <div>
-                <h2>🤖 Automatización</h2>
-                <img src="Captura%20de%20pantalla%202026-03-09%20110612.png" alt="Archivos Bot" class="project-img">
-                <p>Estructura profesional de archivos para bots escalables y eficientes.</p>
+    <div id="modalMC" class="modal" onclick="closeModal(event, 'modalMC')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="document.getElementById('modalMC').style.display='none'">&times;</span>
+            <div class="modal-grid">
+                <img src="image-193.png" style="width:100%; border-radius:10px;" alt="Detalle MC">
+                <div>
+                    <h2 style="color: var(--accent);">Setups de Minecraft 1.21+</h2>
+                    <p>Especialista en servidores técnicos y competitivos:</p>
+                    <ul style="color: var(--text-gray);">
+                        <li>Configuración de <strong>DeluxeMenus</strong> y ORAXEN.</li>
+                        <li>Sistemas de Rankup y prestigio optimizados.</li>
+                        <li>Balance de economía y tiendas personalizadas.</li>
+                        <li>Optimización de recursos para evitar LAG (Paper/Purpur).</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div id="modalAuto" class="modal" onclick="closeModal(event, 'modalAuto')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="document.getElementById('modalAuto').style.display='none'">&times;</span>
+            <div class="modal-grid">
+                <img src="Captura%20de%20pantalla%202026-03-09%20110612.png" style="width:100%; border-radius:10px;" alt="Detalle Auto">
+                <div>
+                    <h2 style="color: #43b581;">Sistemas Escalables</h2>
+                    <p>Organización de código limpia y profesional:</p>
+                    <ul style="color: var(--text-gray);">
+                        <li>Uso de Handler profesional para comandos y eventos.</li>
+                        <li>Separación de lógica y configuración (YAML/JSON).</li>
+                        <li>Mantenimiento preventivo de bases de datos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="contact-box">
-        <h2>¿Necesitas un Setup profesional?</h2>
-        <p><strong>Discord ID:</strong> themaximojuan | <strong>Email:</strong> theduojd75@gmail.com</p>
-        <a href="mailto:theduojd75@gmail.com" class="btn">Enviar Correo</a>
+        <h2>¿Llevamos tu proyecto al siguiente nivel?</h2>
+        <p><strong>Discord ID:</strong> themaximojuan</p>
+        <a href="mailto:theduojd75@gmail.com" class="btn">Solicitar Cotización</a>
     </section>
 
 </div>
 
-<footer style="text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.8rem;">
-    &copy; 2026 MaximoJuan | Portfolio Profesional
+<footer style="text-align: center; padding: 50px; color: var(--text-gray); font-size: 0.9rem;">
+    &copy; 2026 MaximoJuan | Todos los derechos reservados
 </footer>
+
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Evita scroll atrás
+    }
+
+    function closeModal(event, id) {
+        document.getElementById(id).style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+</script>
 
 </body>
 </html>
-
